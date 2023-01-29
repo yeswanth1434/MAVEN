@@ -1,0 +1,95 @@
+################### MAVEN
+
+##### git config --global credential.helper store (this command help to not every time ask name & password)
+
+creat ec2 instannce
+ssh -i ~/doenload/maven.pem ec2-user@<public ip>
+its fails try this (chmod 400 ~/downloads/project.pem) or go and see maven floder
+
+sudo yum install maven -y
+mvn --version
+
+To creat webproject from maven teamplate-
+mvn archetype:generate -DgroupId=in.java -DartifactId=hello -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+cd hello
+sudo yum install git -y 
+
+git init
+git config --global user.name "yeswanth asam"
+git config --global user.email "yesh30032002@gamil.com"
+git status
+git add .
+git commit -m 'massage'
+
+create git new repoistry like
+git remote add origin git@github.com:yeswanth1434/hello.git
+git branch -M main
+git push -u origin main
+problem
+{Permission denied (publickey).
+ https://phoenixnap.com/kb/ssh-with-key
+ create this keys using above link (id_rsa is the private key. id_rsa.pub is the public key.)
+ back to bash                                   
+ ls -l ~/.ssh/
+ vi id_rsa.pub (copy the conntent)
+ create SSH and GPG keys (github.com/settings/keys/new SSH key)
+ name and paste the id_rsa.pub copy content}
+
+####################### INSTALL MVN PACKAGE
+ 1.mvn validate
+ 2.mvn compile
+ 3.mvn clean
+ 4.mvn package (its fails because it has no pluguns)
+
+{ADD PLUGUNS
+ cd hello
+ vi pom.xml
+*copied this in </dependencies> down
+ (<build>
+   <plugins>
+    <plugin>
+     <groupId>org.apache.maven.plugins</groupId>
+     <artifactId>maven-war-plugin</artifactId>
+     <version>3.3.1</version>
+    </plugin>
+   </plugins>) }
+
+(To ignore target floder because it is output floder)
+Touch .gitignore
+vi .gitignore
+target* (save and exits)
+ls -a (to see hiden files)
+git add,git commit,git push
+
+############## MAVEN CENTRAL REPOSITORY
+*google search 'maven poi'
+*click the version 5.2.3 like
+*copy the dependency code and paste in pom.xml under first <dependencies>
+
+( <url>http://maven.apache.org</url>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+    <dependency>
+     <groupId>org.apache.poi</groupId>
+     <artifactId>poi</artifactId>
+     <version>5.2.3</version>
+    </dependency> )
+
+*google search 'maven central repository url' to see central repository and search what u want
+
+############# MAVEN LOCAL REPOSITORY
+
+
+############# MAVEN REMOTE REPOSITORY
+
+
+#### (mvn package -Dskiptest=true) this command use for code is work & test case is fail,if test case are faill package not be created & won't able to deploy,so use 'skip test'
+
+#### (mvn clean package) this command is to clean target & launch fresh target
+     (mvn clean) to clean target floder 
+     (mvn package) to again lanuch target floder
+
+
+
+
