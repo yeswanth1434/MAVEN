@@ -28,13 +28,12 @@ git branch -M main
 git push -u origin main
 problem
 {Permission denied (publickey).
- https://phoenixnap.com/kb/ssh-with-key
- create this keys using above link (id_rsa is the private key. id_rsa.pub is the public key.)
- back to bash                                   
- ls -l ~/.ssh/
- vi id_rsa.pub (copy the conntent)
- create SSH and GPG keys (github.com/settings/keys/new SSH key)
- name and paste the id_rsa.pub copy content}
+ 1.ssh-keygen -t rsa --> enter -->enter-->enter                                   
+ 2.cd ~/.ssh
+ 3.ls -ltr
+ 4.cat id_rsa.pub (copy the conntent and paste in git)
+ 5.create SSH and GPG keys (github.com/settings/keys/new SSH key)
+
 
 ####################### INSTALL MVN PACKAGE
  1.mvn validate
